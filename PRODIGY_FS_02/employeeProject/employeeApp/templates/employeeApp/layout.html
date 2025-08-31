@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Employee Management App{% endblock %}</title>
+
+    <!-- Bootstrap 5 CSS (CDN) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/styless.css' %}">
+    
+    <style>
+        body {
+            padding-top: 0px; /* Navbar'ın üstüne bindirmesin diye */
+            background-image: url("{% static 'images/bg.png' %}");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .navbar {
+        background: linear-gradient(90deg, #1e3c72, #2a5298); /* mavi tonlu geçişli arka plan */
+        }
+
+        .navbar-brand {
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        }
+
+        .navbar-nav .nav-link {
+        font-size: 1rem;
+        margin-left: 10px;
+        transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+        color: #ffd700 !important; /* hoverda altın rengi */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-uppercase" href="{% url 'home' %}">
+      <i class="fa fa-car"></i> Employee App
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="{% url 'employee_create' %}">Employee Create</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" href="{% url 'employee_list' %}">Show Employee</a>
+        </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <form method="post" action="{% url 'logout' %}" class="d-inline">
+                        {% csrf_token %}
+                        <button class="btn btn-link nav-link" type="submit">
+                         Logout
+                        </button>
+                    </form>
+                </li>
+            {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Login</a>
+                </li>
+            {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <!-- Main content
+
+ 
+    -->
+    <div class="container mt-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Bootstrap 5 JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

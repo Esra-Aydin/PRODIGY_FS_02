@@ -1,0 +1,140 @@
+
+
+/* Genel body ayarları */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container tüm sayfalarda ortak */
+.container, .login-container {
+    background: #fff;
+    padding: 2rem 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 360px;
+    max-width: 90vw;
+    box-sizing: border-box;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Başlıklar */
+h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-transform: capitalize;
+}
+
+/* Form etiketleri */
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: #555;
+}
+
+/* Inputlar */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input, textarea,
+select {
+    width: 100%;
+    padding: 0.7rem 0.8rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 8px rgba(74,144,226,0.3);
+}
+
+/* Butonlar */
+button {
+    width: 100%;
+    padding: 0.85rem 0;
+    background-color: #4a90e2;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ABD;
+}
+
+/* Linkler */
+a {
+    display: inline-block;
+    margin-top: 1rem;
+    text-align: center;
+    width: 100%;
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #2c5aa0;
+    text-decoration: underline;
+}
+
+/* Hata mesajları */
+.error {
+    color: #e74c3c;
+    font-weight: 600;
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+}
+
+/* Animasyon */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn-link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 0.5rem;
+    cursor: pointer;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
+
+section ul {
+    padding-left: 1.2rem;
+    color: #333;
+    line-height: 1.4;
+}
+
+

@@ -1,0 +1,29 @@
+{% extends "employeeApp/layout.html" %}
+
+{% block title %}Employee Form{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow p-4">
+                <h2 class="card-title text-center mb-4">Add New Employee</h2>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <!-- Form alanlarını otomatik göstermek için -->
+                    {{ form.as_p }}
+
+                    <div class="d-grid gap-2">
+                        <button type="submit" class="btn btn-success btn-lg">Save Employee</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

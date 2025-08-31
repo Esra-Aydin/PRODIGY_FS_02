@@ -1,0 +1,47 @@
+{% extends "employeeApp/layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+    <div class="card shadow-lg border-0 p-5 text-center" 
+         style="max-width: 750px; background: linear-gradient(135deg, #e9f1fa, #cdddf7); border-radius: 20px;">
+        
+        <!-- Başlık -->
+        <h1 class="display-4 fw-bold mb-3" style="color:#2a5298;">
+             Welcome to <span style="color:#2a5298;">Employee Management System</span>
+        </h1>
+        
+        <!-- Açıklama -->
+        <p class="lead text-muted mb-4">
+            Manage your employees <strong>efficiently</strong> and <strong>effectively</strong> 
+            with our easy-to-use system.
+        </p>
+
+        <!-- Ayırıcı -->
+        <hr class="my-4" style="border-top: 2px solid #2a5298;">
+
+        <!-- Ek açıklama -->
+        <p class="fs-5 mb-4 text-dark">
+            Use the navigation bar above to add, view, update, or delete employees.
+        </p>
+
+        <!-- Buton -->
+        <a href="{% url 'employee_list' %}" 
+           class="btn btn-lg px-5 py-3 shadow-sm"
+           style="border-radius: 50px; font-size: 1.2rem; background-color:#2a5298; color:white; transition:0.3s;">
+            👥 View Employees
+        </a>
+    </div>
+</div>
+
+<!-- Buton hover için küçük CSS -->
+<style>
+    a.btn:hover {
+        background-color: #ffd700 !important;
+        color: #1e3c72 !important;
+        transform: scale(1.05);
+    }
+</style>
+{% include "employeeApp/footer.html" %}
+{% endblock %}

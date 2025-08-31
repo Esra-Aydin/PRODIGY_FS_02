@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/styles.css' %}">
+</head>
+<body>
+    <div class="login-container">
+        <h2>login</h2>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" required>
+
+            <button type="submit">login</button>
+        </form>
+
+        {% if errors %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <p> Dont have an account? <a href="{% url 'register' %}">Register here</a></p>
+
+    </div>
+</body>
+</html>
